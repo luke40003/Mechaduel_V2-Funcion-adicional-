@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.mechaduel.view.EnsambleView">
+    <padding>
+        <Insets top="20" right="25" bottom="20" left="25"/>
+    </padding>
+
+    <fx:define>
+        <ToggleGroup fx:id="tgEfectos"/>
+    </fx:define>
+
+    <Label text="ENSAMBLE DE MECHA" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <Label text="HP Inicial: 100 | Total disponible: 200 puntos"/>
+
+    <HBox alignment="CENTER" spacing="10">
+        <Label text="Robots guardados:"/>
+        <ComboBox fx:id="cmbRobots" promptText="Seleccionar de robots.bin..." onAction="#onSeleccionarRobot" prefWidth="240"/>
+    </HBox>
+
+    <GridPane alignment="CENTER" hgap="10" vgap="8">
+        <Label text="Nombre del Mecha:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNombre" text="Titan Alpha" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Ataque (ATK):" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtAtk" text="60" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Defensa (DEF):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtDef" text="50" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Velocidad (SPD):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtSpd" text="50" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Energía (NRG):" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNrg" text="40" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <Label text="Efecto de estado (máximo 1):"/>
+    <VBox alignment="CENTER_LEFT" spacing="5" maxWidth="260">
+        <RadioButton fx:id="rbNinguno" text="Ninguno" toggleGroup="$tgEfectos" selected="true"/>
+        <RadioButton fx:id="rbQuemadura" text="Q - Quemadura (-3 HP rival)" toggleGroup="$tgEfectos"/>
+        <RadioButton fx:id="rbRegeneracion" text="R - Regeneración (+3 HP propio)" toggleGroup="$tgEfectos"/>
+        <RadioButton fx:id="rbNucleo" text="N - Núcleo Activo (+2 NRG propio)" toggleGroup="$tgEfectos"/>
+    </VBox>
+
+    <HBox alignment="CENTER" spacing="12">
+        <Button text="Guardar Mecha (robots.bin)" onAction="#onGuardarRobotPrevia"/>
+        <Button fx:id="btnConfirmar" text="Confirmar Mecha y Ver Rival" onAction="#onConfirmarMecha"/>
+    </HBox>
+
+    <Label fx:id="lblMensaje" text=""/>
+</VBox>

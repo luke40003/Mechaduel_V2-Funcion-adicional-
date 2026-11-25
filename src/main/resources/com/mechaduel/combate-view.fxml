@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.mechaduel.view.CombateView">
+    <padding>
+        <Insets top="15" right="20" bottom="15" left="20"/>
+    </padding>
+
+    <Label text="ARENA DE COMBATE" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <Label fx:id="lblModoJuego" text="Modo de juego:"/>
+
+    <HBox alignment="CENTER" spacing="30">
+        <VBox spacing="4" style="-fx-border-color: gray; -fx-padding: 10;">
+            <Label fx:id="lblMiNombre" text="MI MECHA" style="-fx-font-weight: bold;"/>
+            <Label fx:id="lblMiHp" text="HP: 100"/>
+            <Label fx:id="lblMiStats" text="ATK: 0 | DEF: 0 | SPD: 0"/>
+            <Label fx:id="lblMiNrg" text="NRG: 0"/>
+            <Label fx:id="lblMiEff" text="EFF: []"/>
+        </VBox>
+
+        <VBox spacing="4" style="-fx-border-color: gray; -fx-padding: 10;">
+            <Label fx:id="lblRivalNombre" text="MECHA RIVAL" style="-fx-font-weight: bold;"/>
+            <Label fx:id="lblRivalHp" text="HP: 100"/>
+            <Label fx:id="lblRivalStats" text="ATK: 0 | DEF: 0 | SPD: 0"/>
+            <Label fx:id="lblRivalNrg" text="NRG: 0"/>
+            <Label fx:id="lblRivalEff" text="EFF: []"/>
+        </VBox>
+    </HBox>
+
+    <Label fx:id="lblTurno" text="Preparando combate..." style="-fx-font-weight: bold;"/>
+
+    <HBox alignment="CENTER" spacing="8">
+        <Button fx:id="btnAttack" text="ATTACK" onAction="#onAttack" disable="true"/>
+        <Button fx:id="btnSpecial" text="SPECIAL" onAction="#onSpecial" disable="true"/>
+        <Button fx:id="btnDodge" text="DODGE" onAction="#onDodge" disable="true"/>
+        <Button fx:id="btnHeal" text="HEAL" onAction="#onHeal" disable="true"/>
+        <Button fx:id="btnCharge" text="CHARGE" onAction="#onCharge" disable="true"/>
+    </HBox>
+
+    <Label text="Registro de movimientos:"/>
+    <ListView fx:id="lvHistorial" prefHeight="170" prefWidth="500"/>
+
+    <HBox fx:id="boxFinPartida" alignment="CENTER" spacing="15" visible="false">
+        <Button text="Guardar Robot (robots.bin)" onAction="#onGuardarRobot"/>
+        <Button text="Guardar Estrategia (.txt)" onAction="#onGuardarMovimientos"/>
+    </HBox>
+</VBox>

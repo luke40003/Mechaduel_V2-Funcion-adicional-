@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="12.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.mechaduel.view.ConexionView">
+    <padding>
+        <Insets top="22" right="25" bottom="22" left="25"/>
+    </padding>
+
+    <Label text="MECHA DUEL - Modo de Juego" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <HBox alignment="CENTER" spacing="10">
+        <Label text="IP Rival:"/>
+        <TextField fx:id="txtIp" text="localhost" promptText="Ej: 127.0.0.1"/>
+    </HBox>
+
+    <HBox alignment="CENTER" spacing="10">
+        <Label text="Puerto:"/>
+        <TextField fx:id="txtPuerto" text="5000" promptText="Ej: 5000"/>
+    </HBox>
+
+    <HBox alignment="CENTER" spacing="15">
+        <Button fx:id="btnServidor" text="Esperar Rival (Servidor)" onAction="#onIniciarServidor"/>
+        <Button fx:id="btnCliente" text="Conectar (Cliente)" onAction="#onConectarCliente"/>
+    </HBox>
+
+    <Separator prefWidth="320"/>
+
+    <Label text="Modo Un Jugador" style="-fx-font-weight: bold;"/>
+    <Button fx:id="btnVsCpuArchivo" text="Jugar vs CPU" onAction="#onJugarVsCpuArchivo"/>
+
+    <Label fx:id="lblEstado" text="Elige conexión en red o juego local vs CPU."/>
+</VBox>
